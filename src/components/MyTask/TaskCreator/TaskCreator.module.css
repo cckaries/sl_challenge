@@ -1,0 +1,26 @@
+.Container {
+  width: 60vw;
+  min-width: 420px;
+  max-width: 620px;
+  margin-top: 15px;
+  background: #F2F2F2;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px #C8C8C8;
+}
+
+.Title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+
+.Body {
+  padding: 15px 30px;
+}
+
+.Buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,20 @@
+.Button {
+  flex: 1;
+  margin: 0;
+  padding: 10px 20px;
+  background: #fff;
+  border: none;
+  font-size: 1.875rem;
+  color: #D0021B;
+  cursor: pointer;
+  outline: none;
+}
+
+.Button.add {
+  background: #4A90E2;
+  color: #fff;
+}
+
+.Button:active {
+  background: #ccc;
+}
