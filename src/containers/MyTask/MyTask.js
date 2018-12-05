@@ -8,26 +8,25 @@ class MyTask extends Component {
     tasks: []
   };
 
-  componentDidMount = () => {
-    console.log(this.state.tasks);
-  };
-
   addTaskHandler = newTask => {
-    // console.log('add:', newTask);
     this.setState({
       ...this.state,
       tasks: this.state.tasks.concat(newTask)
     });
-
-    console.log(this.state);
   };
 
   cancelTaskHandler = () => {
     // console.log('cancel');
   };
 
-  taskCompleteHandler = index => {
-    // console.log(index);
+  taskCompleteHandler = (e, index) => {
+    const updatedTasks = [...this.state.tasks];
+    updatedTasks[index].isCompleted = !updatedTasks[index].isCompleted;
+
+    this.setState({
+      ...this.state,
+      tasks: updatedTasks
+    });
   };
 
   render() {

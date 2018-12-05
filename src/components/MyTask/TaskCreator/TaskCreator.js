@@ -10,26 +10,36 @@ export default class TaskCreator extends Component {
     file: '',
     comment: '',
     isStarred: false,
-    isCompleted: false,
+    isCompleted: false
   };
 
-  inputChangeHandler = (e) => {
+  inputChangeHandler = e => {
     this.setState({
       ...this.state,
       title: e.target.value
-    })
-  }
+    });
+  };
 
-  textareaChangeHandler = (e) => {
+  textareaChangeHandler = e => {
     this.setState({
       ...this.state,
       comment: e.target.value
-    })
-  }
+    });
+  };
 
-  submitHandler = (e) => {
+  submitHandler = e => {
     e.preventDefault();
-    this.props.addTask(this.state);
+    const newTask = { ...this.state };
+    this.props.addTask(newTask);
+
+    this.setState({
+      title: '',
+      date: '',
+      file: '',
+      comment: '',
+      isStarred: false,
+      isCompleted: false
+    });
   };
 
   render() {
@@ -38,7 +48,12 @@ export default class TaskCreator extends Component {
         <form onSubmit={this.submitHandler}>
           <div className={styles.Title}>
             <div>ICON</div>
-            <input type="text" placeholder="Title" onChange={this.inputChangeHandler} />
+            <input
+              type="text"
+              placeholder="Title"
+              onChange={this.inputChangeHandler}
+              value={this.state.title}
+            />
             <div>
               <div>STAR</div>
               <div>EDIT</div>
@@ -49,7 +64,12 @@ export default class TaskCreator extends Component {
             <div>DEADLINE DATE</div>
             <div>FILE</div>
             <div>
-              <textarea name="comment" placeholder="Coment" onChange={this.textareaChangeHandler} />
+              <textarea
+                name="comment"
+                placeholder="Coment"
+                onChange={this.textareaChangeHandler}
+                value={this.state.comment}
+              />
             </div>
           </div>
 

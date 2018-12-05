@@ -3,15 +3,16 @@ import React from 'react';
 import styles from './Task.module.css';
 
 const Task = props => {
-  let mark = null;
-
-  if (props.isCompleted) {
-    mark = <div>COMPLETED</div>
-  }
-
   return (
     <div className={styles.Wrapper}>
-      <input type="checkbox" onChange={props.checked} />
+      <label>
+        <input
+          type="checkbox"
+          checked={props.isCompleted}
+          onChange={(e) => props.checkEvent(e, props.index)}
+        />
+        {props.isCompleted ? 'Completed' : null }
+      </label>
       <div className={styles.Title}>
         <div />
         <div>{props.title}</div>
@@ -22,7 +23,6 @@ const Task = props => {
       </div>
       <div />
       <div>{props.comment}</div>
-      {mark}
     </div>
   );
 };
